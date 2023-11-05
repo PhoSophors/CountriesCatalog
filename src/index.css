@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* All countires style */
+.grids {
+  display: grid;
+  grid-template-columns: repeat(4, 0fr);
+  justify-content: center;
+  align-items: center;
 }
+.grid-item {
+  display: block;
+  justify-self: center;
+  align-self: center;
+}
+.card {
+  width: 300px;
+  height: 300px;
+  min-height: 300px;
+}
+.child-card {
+  height: 100px;
+}
+.img {
+  width: 100%;
+  height: 130px;
+}
+.country-titel {
+  display: -webkit-box;
+  font-size: 1.5rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/*End  All countires style */
