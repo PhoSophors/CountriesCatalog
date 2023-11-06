@@ -2,29 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* header */
+nav {
+  position: fixed;
+  width: 100%;
+  height: 5rem;
+  font-family: 'Agustina', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* end header */
 /* All countires style */
 .grids {
   display: grid;
   grid-template-columns: repeat(4, 0fr);
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .grid-item {
-  display: block;
+  display: flex;
   justify-self: center;
   align-self: center;
 }
 .card {
-  width: 300px;
-  height: 300px;
-  min-height: 300px;
+  width: 20rem;
+  height: 20rem;
+  min-height: 20rem;
 }
 .child-card {
-  height: 100px;
+  height: 8rem;
 }
 .img {
   width: 100%;
-  height: 130px;
+  height: 9rem;
 }
 .country-titel {
   display: -webkit-box;
@@ -34,3 +45,83 @@
   overflow: hidden;
 }
 /*End  All countires style */
+
+/* Modal */
+.Modal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:#364f6be3;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 600px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+}
+/* End Modal */
+
+/* Panginate */
+.pagination {
+  display: flex;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.pagination button {
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-weight: 600;
+  margin: 0 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  font-weight: 900;
+  background: #ffe400;
+}
+/* end panginate */
+
+/* respinsivve */
+@media (max-width: 1490px)
+{
+  .grids {
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 1100px)
+{
+  .grids {
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 709px)
+{
+  .grids {
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+    justify-content: center;
+    align-items: center;
+  }
+}
+
