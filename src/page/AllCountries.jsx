@@ -2,38 +2,55 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { apiURL } from "../api/api.js";
 import Card from "../components/card/Card.jsx";
 import Hero from "./Hero.jsx";
+import { Link } from "react-router-dom";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(100); // 25 * 4 = 100
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState("");
 
   // Fetch all countries from the API.
   const getAllCountries = useCallback(async () => {
-    const res = await fetch(`${apiURL}/all`);
-    // Check the status of the response from the API.
-    if (!res.ok) throw new Error("Something went wrong!");
-    const data = await res.json();
-    console.log(data);
-    setCountries(data);
-    setIsLoading(false);
+    try {
+      const res = await fetch(`${apiURL}/all`);
+      // Check the status of the response from the API.
+      if (!res.ok) throw new Error("Something went wrong!");
+      const data = await res.json();
+      setCountries(data); // Display the country data
+      console.log(data);
+      setIsLoading(false); // set loading
+    } catch (error) {
+      alert(error.message); // Display a message to the user
+      setIsLoading(false);
+    }
   }, []);
 
   const getCountryByName = async (countryName) => {
-    const res = await fetch(`${apiURL}/name/${countryName}`);
-    if (!res.ok) throw new Error("Not found any country!");
-    const data = await res.json();
-    setCountries(data);
-    setIsLoading(false);
+    try {
+      const res = await fetch(`${apiURL}/name/${countryName}`);
+      if (!res.ok) throw new Error("Not found any country!");
+      const data = await res.json();
+      setCountries(data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      alert(error.message);
+    }
   };
 
   const getCountryByRegion = async (regionName) => {
-    const res = await fetch(`${apiURL}/region/${regionName}`);
-    if (!res.ok) throw new Error("Failed..........");
-    const data = await res.json();
-    setCountries(data);
-    setIsLoading(false);
+    try {
+      const res = await fetch(`${apiURL}/region/${regionName}`);
+      if (!res.ok) throw new Error("Not have a country..!");
+      const data = await res.json();
+      setCountries(data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      alert(error.message);
+    }
   };
 
   // Memoize the countries variable.
@@ -60,6 +77,10 @@ const AllCountries = () => {
   return (
     <>
       <div className="dark:bg-gray-900">
+        {isLoading && !isError && (
+          <img src="https://images.squarespace-cdn.com/content/v1/5c4a3053b98a78bea1e90622/1575486969836-DQKSYYW7F60712AGPFKV/loader.gif" />
+        )}
+        {isError && !isLoading && <img>{isError}</img>}
 
         {/* section hero (search in hero) */}
         <section className="Hero">
@@ -68,13 +89,17 @@ const AllCountries = () => {
 
         {/* Section countries */}
         <section className="grids">
-          {countries.length === 0 ? <h1 className="text-gray-900 dark:text-text-white">Loading...</h1> : slicedCountries?.map((country) => (
-            <Card
-              key={country.id}
-              img={country.flags.png}
-              countryName={country.name.official}
-            />
-          ))}
+          {countries.length === 0 ? (
+            <img src="https://cdn.pixabay.com/animation/2022/10/11/03/16/03-16-39-160_512.gif" />
+          ) : (
+            slicedCountries?.map((country, id) => (
+              <Card
+                key={id}
+                img={country.flags.png}
+                countryName={country.name.official}
+              />
+            ))
+          )}
         </section>
 
         {/*  Section Pagination buttons */}

@@ -14,9 +14,9 @@ const Hero = ({onSearch, onSelect}) => {
   };
 
   return (
-    <section className="bg-white xl:p-20 md-mt-20 sm-mt-20 lg-mt-20 dark:bg-gray-900">
-      <div className="grid  max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-        <div className="mr-auto place-self-center lg:col-span-7">
+    <section className=" bg-white xl:p-20 md-mt-20 sm-mt-20 lg-mt-20 dark:bg-gray-900">
+      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div className="mr-auto hero-m  p-5 place-self-center lg:col-span-7">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
             A Comprehensive Guide to the World's Nations
           </h1>
@@ -37,7 +37,7 @@ const Hero = ({onSearch, onSelect}) => {
               <option value="Oceania">Oceania</option>
             </select>
 
-            <form  onSubmit={submitHandler} className="relative w-full">
+            <form  onSubmit={submitHandler} className="relative w-full ">
               <input
               value={input}
               onChange={(e) => setInput(e.target.value)}

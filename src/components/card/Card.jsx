@@ -1,6 +1,3 @@
-// All countries card
-// date: 4 nov 2023 (8:00Pm)
-
 import React, { useState } from "react";
 import Modal from "../modal/Modal.jsx";
 import { Link } from "react-router-dom";
@@ -8,6 +5,7 @@ import { Link } from "react-router-dom";
 const Card = ({
   img, // png img
   countryName,
+  setOpenModal,
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -20,22 +18,16 @@ const Card = ({
               <div className="img">
                 <img className="rounded-lg img" src={img} alt="" />
               </div>
-              <div className="p-5 child-card">
+              <div className="p-5 child-card text-xl">
                 <Link to={`/country/${countryName}`}>
-                  <button
-                    className="openModalBtn"
-                    onClick={() => {
-                      setModalOpen(true);
-                    }}
-                  >
-                    {countryName}
-                  </button>
+                  <button className="openModalBtn">{countryName}</button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {/* Only render the Modal component when the modalOpen state variable is set to true */}
       {modalOpen && <Modal setOpenModal={setModalOpen} />}
     </section>
   );

@@ -12,6 +12,7 @@ nav {
   cursor: pointer;
 }
 /* end header */
+
 /* All countires style */
 .grids {
   display: grid;
@@ -66,8 +67,13 @@ nav {
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.modal-img {
+  width: 600px;
+  height: 100%;
 }
 /* End Modal */
 
@@ -105,6 +111,9 @@ nav {
     justify-content: center;
     align-items: center;
   }
+  .hero-m {
+    margin-top: 5rem;
+  }
 }
 @media (max-width: 1100px)
 {
@@ -114,6 +123,10 @@ nav {
     justify-content: center;
     align-items: center;
   }
+  .hero-m {
+    margin-top: 7rem;
+  }
+ 
 }
 @media (max-width: 709px)
 {
@@ -122,6 +135,9 @@ nav {
     grid-template-columns: repeat(1, 0fr);
     justify-content: center;
     align-items: center;
+  }
+  .hero-m {
+    margin-top: 5rem;
   }
 }
 
