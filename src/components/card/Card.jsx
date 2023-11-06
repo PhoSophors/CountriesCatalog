@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import Modal from "../modal/Modal.jsx";
+import { Link } from "react-router-dom";
 
 const Card = ({
   img, // png img
@@ -20,14 +21,16 @@ const Card = ({
                 <img className="rounded-lg img" src={img} alt="" />
               </div>
               <div className="p-5 child-card">
-                <button
-                  className="openModalBtn"
-                  onClick={() => {
-                    setModalOpen(true);
-                  }}
-                >
-                  {countryName}
-                </button>
+                <Link to={`/country/${countryName}`}>
+                  <button
+                    className="openModalBtn"
+                    onClick={() => {
+                      setModalOpen(true);
+                    }}
+                  >
+                    {countryName}
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -6,7 +6,9 @@ const Loading = () => {
   return (
     <div className="flex flex-wrap gap-2">
       <div className="text-center">
-        <Spinner aria-label="Extra large spinner example" size="xl" />
+        <Spinner aria-label="Extra large spinner example" size="xl" >
+          Loading....
+        </Spinner>
       </div>
   </div>
   )
