@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-## How To Use 
+# How To Use 
 
 From your command line, clone and run yt2mp3:
 
