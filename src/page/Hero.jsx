@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-const Hero = ({onSearch, onSelect}) => {
+const Hero = ({ onSearch, onSelect }) => {
   const [input, setInput] = useState("");
 
   const submitHandler = (e) => {
@@ -14,9 +14,9 @@ const Hero = ({onSearch, onSelect}) => {
   };
 
   return (
-    <section className=" bg-white xl:p-20 md-mt-20 sm-mt-20 lg-mt-20 dark:bg-gray-900">
+    <section className=" bg-white items-center text-center mx-auto justify-center flex xl:p-20 md-mt-20 sm-mt-20 lg-mt-20 dark:bg-gray-900">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-        <div className="mr-auto hero-m  p-5 place-self-center lg:col-span-7">
+        <div className="mr-auto hero-m p-5  text-center lg:col-span-7">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
             A Comprehensive Guide to the World's Nations
           </h1>
@@ -37,10 +37,10 @@ const Hero = ({onSearch, onSelect}) => {
               <option value="Oceania">Oceania</option>
             </select>
 
-            <form  onSubmit={submitHandler} className="relative w-full ">
+            <form onSubmit={submitHandler} className="relative w-full ">
               <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
                 className="bg-gray-50 border py-2.5 px-4 text-sm font-medium border-gray-300 text-gray-900 text-sm w-full rounded-r-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white"
                 type="text"
                 placeholder="Search a country..."
@@ -71,8 +71,9 @@ const Hero = ({onSearch, onSelect}) => {
         </div>
 
         {/* contries image */}
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <div className="hidden lg:mt-0 p-10 lg:col-span-5 lg:flex">
           <img
+            className="img-hero"
             src="https://images.pexels.com/photos/8828346/pexels-photo-8828346.jpeg"
             alt="mockup"
           />

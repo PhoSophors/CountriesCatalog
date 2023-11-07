@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { apiURL } from "../api/api.js";
 import Card from "../components/card/Card.jsx";
 import Hero from "./Hero.jsx";
-import { Link } from "react-router-dom";
+import Navbar from "../components/nav/Navbar.jsx";
+import Footer from "../components/footer/Footer.jsx";
+import Loading from "../components/loading/Loading.jsx";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
@@ -19,7 +22,6 @@ const AllCountries = () => {
       if (!res.ok) throw new Error("Something went wrong!");
       const data = await res.json();
       setCountries(data); // Display the country data
-      console.log(data);
       setIsLoading(false); // set loading
     } catch (error) {
       alert(error.message); // Display a message to the user
@@ -77,10 +79,13 @@ const AllCountries = () => {
   return (
     <>
       <div className="dark:bg-gray-900">
-        {isLoading && !isError && (
-          <img src="https://images.squarespace-cdn.com/content/v1/5c4a3053b98a78bea1e90622/1575486969836-DQKSYYW7F60712AGPFKV/loader.gif" />
-        )}
+        {isLoading && !isError && <Loading />}
         {isError && !isLoading && <img>{isError}</img>}
+
+        {/* section Header */}
+        <section className="Header">
+          <Navbar />
+        </section>
 
         {/* section hero (search in hero) */}
         <section className="Hero">
@@ -90,7 +95,7 @@ const AllCountries = () => {
         {/* Section countries */}
         <section className="grids">
           {countries.length === 0 ? (
-            <img src="https://cdn.pixabay.com/animation/2022/10/11/03/16/03-16-39-160_512.gif" />
+            <Loading />
           ) : (
             slicedCountries?.map((country, id) => (
               <Card
@@ -113,6 +118,11 @@ const AllCountries = () => {
               {pageNumber}
             </button>
           ))}
+        </section>
+
+        {/* Footer Section */}
+        <section id="Footer">
+          <Footer />
         </section>
       </div>
     </>

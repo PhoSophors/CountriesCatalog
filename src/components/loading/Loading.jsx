@@ -1,14 +1,11 @@
-'use client';
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import { Spinner } from 'flowbite-react';
 
 const Loading = () => {
   return (
-    <div className="flex flex-wrap gap-2">
-      <div className="text-center">
-        <Spinner aria-label="Extra large spinner example" size="xl" >
-          Loading....
-        </Spinner>
+    <div className=" loading-page item-center jsutify-center ">
+      <div className="text-center flex mx-auto item-center jsutify-center">
+        <img className='loading-img' src="https://i.gifer.com/ZKZg.gif" />
       </div>
   </div>
   )

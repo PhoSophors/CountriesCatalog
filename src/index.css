@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.App {
+  min-width: 100vw;
+  height: 100vh;
+  display: block;
+}
 /* header */
 nav {
   position: fixed;
@@ -29,7 +34,6 @@ nav {
 .card {
   width: 20rem;
   height: 20rem;
-  min-height: 20rem;
 }
 .child-card {
   height: 8rem;
@@ -55,7 +59,7 @@ nav {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color:#364f6be3;
+  background-color:#1e2b3993;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -75,6 +79,7 @@ nav {
   width: 600px;
   height: 100%;
 }
+
 /* End Modal */
 
 /* Panginate */
@@ -102,6 +107,29 @@ nav {
 }
 /* end panginate */
 
+/* loading  */
+.loading-page  {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:#000000e3;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-img {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
 /* respinsivve */
 @media (max-width: 1490px)
 {
@@ -114,6 +142,9 @@ nav {
   .hero-m {
     margin-top: 5rem;
   }
+  .img-hero {
+    margin-top: 3rem;
+  }
 }
 @media (max-width: 1100px)
 {
@@ -124,10 +155,14 @@ nav {
     align-items: center;
   }
   .hero-m {
-    margin-top: 7rem;
+    margin-top: 10rem;
   }
- 
+  .img-hero {
+    margin-top: 10rem;
+  }
 }
+
+
 @media (max-width: 709px)
 {
   .grids {

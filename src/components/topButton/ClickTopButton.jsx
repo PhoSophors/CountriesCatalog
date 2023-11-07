@@ -16,7 +16,7 @@ export default function ClickTopButton() {
       mybutton.style.display = "none";
     }
   }
-    /** Function back to top */
+  /** Function back to top */
   function backToTop() {
     window.scrollTo({
       top: 0,
@@ -45,10 +45,7 @@ export default function ClickTopButton() {
           fill="none"
           viewBox="0 0 10 14"
         >
-          <path
-            stroke="currentColor"
-            d="M5 13V1m0 0L1 5m4-4 4 4"
-          />
+          <path stroke="currentColor" d="M5 13V1m0 0L1 5m4-4 4 4" />
         </svg>
       </button>
     </div>
