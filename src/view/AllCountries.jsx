@@ -10,7 +10,7 @@ import Loading from "../components/loading/Loading.jsx";
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(100); // 25 * 4 = 100
+  const [postsPerPage] = useState(25); // 25 * 4 = 100
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState("");
 
@@ -55,6 +55,43 @@ const AllCountries = () => {
     }
   };
 
+  const ascendingEvent = () => {
+    try {
+      let data = [...countries];
+      if (data.length > 0) {
+        let result = data.sort((a, b) => {
+          if (a.usename && b.usename) {
+            return a.usename.toString().localeCompare(b.usename.toString());
+          } else {
+            // Handle undefined or null usename properties
+            return 0; // Or sort based on other criteria if applicable
+          }
+        });
+        setCountries(result);
+      }
+    } catch (error) {
+      console.error("Error sorting countries:", error);
+      alert(error.message);
+    }
+  };
+
+
+  
+  const descendingEvent = () => {
+    try {
+      let data = [...countries];
+      if (data.length > 0) {
+        let result = data.sort((a, b) =>
+          b.usename.toString().localeCompare(a.usename.toString())
+        );
+        setCountries(result);
+      }
+    } catch (error) {
+      console.error("Error sorting countries:", error);
+      alert(error.message);
+    }
+  };
+
   // Memoize the countries variable.
   const memoizedCountries = useMemo(() => countries, [countries]);
   // Calculate the start and end indices for the current page.
@@ -89,7 +126,17 @@ const AllCountries = () => {
 
         {/* section hero (search in hero) */}
         <section className="Hero">
-          <Hero onSearch={getCountryByName} onSelect={getCountryByRegion} />
+        {countries && countries.length > 0 && countries != undefined
+        ? countries.map((item, i) => {
+            return <div>{item.usename}</div>;
+          })
+        : "No Data"}
+          <Hero 
+            onSearch={getCountryByName} 
+            onSelect={getCountryByRegion} 
+            sortAscending={ascendingEvent} 
+            sortDescending={descendingEvent}
+          />
         </section>
 
         {/* Section countries */}

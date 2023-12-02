@@ -1,5 +1,5 @@
 import "../index.css";
-import AllCountries from "../page/AllCountries";
+import AllCountries from "../view/AllCountries.jsx";
 import ClickTopButton from "../components/topButton/ClickTopButton.jsx";
 import { Routes, Route } from "react-router-dom";
 import Modal from "../components/modal/Modal.jsx";

@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React, { useEffect, useRef }  from 'react'
+import Lottie from 'lottie-react';
+import loading from "../../assets/Animation_loading.json";
 
 const Loading = () => {
+ 
   return (
     <div className=" loading-page item-center jsutify-center ">
       <div className="text-center flex mx-auto item-center jsutify-center">
-        <img className='loading-img' src="https://i.gifer.com/ZKZg.gif" />
+        <Lottie animationData={loading} />
       </div>
   </div>
   )
