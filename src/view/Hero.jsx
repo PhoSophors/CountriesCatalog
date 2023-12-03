@@ -4,7 +4,7 @@ import { apiURL } from "../api/api";
 
 const Hero = ({ onSearch, onSelect, sortAscending, sortDescending }) => {
   const [input, setInput] = useState("");
-  const [submit, setSubmit] = useState("");
+  // const [submit, setSubmit] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ const Hero = ({ onSearch, onSelect, sortAscending, sortDescending }) => {
                 className="bg-gray-50 border py-2.5 px-4 text-sm font-medium border-gray-300 text-gray-900 text-sm rounded-l-lg  block p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white"
                 onChange={selectHandler}
               >
-                <option>Choose a country</option>
+                <option >Choose a country</option>
                 <option value="Africa">Africa</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>

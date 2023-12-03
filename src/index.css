@@ -87,7 +87,7 @@ nav {
 /* Panginate */
 .pagination {
   display: flex;
-  width: fit-content;
+  width: 150px;
   padding: 8px;
   border-radius: 5px;
   margin-top: 1rem;
@@ -104,8 +104,12 @@ nav {
 }
 
 .pagination button.active {
+  font-weight: 500;
+  /* background: #ffe400; */
+}
+
+.pagination button:hover {
   font-weight: 900;
-  background: #ffe400;
 }
 /* end panginate */
 

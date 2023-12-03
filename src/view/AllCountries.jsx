@@ -37,8 +37,8 @@ const AllCountries = () => {
       setCountries(data);
       setIsLoading(false);
     } catch (error) {
+      alert(error.message);     
       setIsLoading(false);
-      alert(error.message);
     }
   };
 
@@ -50,47 +50,45 @@ const AllCountries = () => {
       setCountries(data);
       setIsLoading(false);
     } catch (error) {
+      alert(error.message);
       setIsLoading(false);
-      alert(error.message);
     }
   };
 
-  const ascendingEvent = () => {
-    try {
-      let data = [...countries];
-      if (data.length > 0) {
-        let result = data.sort((a, b) => {
-          if (a.usename && b.usename) {
-            return a.usename.toString().localeCompare(b.usename.toString());
-          } else {
-            // Handle undefined or null usename properties
-            return 0; // Or sort based on other criteria if applicable
-          }
-        });
-        setCountries(result);
-      }
-    } catch (error) {
-      console.error("Error sorting countries:", error);
-      alert(error.message);
-    }
-  };
+  // const ascendingEvent = () => {
+  //   try {
+  //     let data = [...countries];
+  //     if (data.length > 0) {
+  //       let result = data.sort((a, b) => {
+  //         if (a.usename && b.usename) {
+  //           return a.usename.toString().localeCompare(b.usename.toString());
+  //         } else {
+  //           // Handle undefined or null usename properties
+  //           return 0; // Or sort based on other criteria if applicable
+  //         }
+  //       });
+  //       setCountries(result);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error sorting countries:", error);
+  //     alert(error.message);
+  //   }
+  // };
 
-
-  
-  const descendingEvent = () => {
-    try {
-      let data = [...countries];
-      if (data.length > 0) {
-        let result = data.sort((a, b) =>
-          b.usename.toString().localeCompare(a.usename.toString())
-        );
-        setCountries(result);
-      }
-    } catch (error) {
-      console.error("Error sorting countries:", error);
-      alert(error.message);
-    }
-  };
+  // const descendingEvent = () => {
+  //   try {
+  //     let data = [...countries];
+  //     if (data.length > 0) {
+  //       let result = data.sort((a, b) =>
+  //         b.usename.toString().localeCompare(a.usename.toString())
+  //       );
+  //       setCountries(result);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error sorting countries:", error);
+  //     alert(error.message);
+  //   }
+  // };
 
   // Memoize the countries variable.
   const memoizedCountries = useMemo(() => countries, [countries]);
@@ -126,16 +124,16 @@ const AllCountries = () => {
 
         {/* section hero (search in hero) */}
         <section className="Hero">
-        {countries && countries.length > 0 && countries != undefined
-        ? countries.map((item, i) => {
-            return <div>{item.usename}</div>;
-          })
-        : "No Data"}
-          <Hero 
-            onSearch={getCountryByName} 
-            onSelect={getCountryByRegion} 
-            sortAscending={ascendingEvent} 
-            sortDescending={descendingEvent}
+          {countries && countries.length > 0 && countries != undefined
+            ? countries.map((item, i) => {
+                return <div>{item.usename}</div>;
+              })
+            : "No Data"}
+          <Hero
+            onSearch={getCountryByName}
+            onSelect={getCountryByRegion}
+            // sortAscending={ascendingEvent}
+            // sortDescending={descendingEvent}
           />
         </section>
 
@@ -155,7 +153,7 @@ const AllCountries = () => {
         </section>
 
         {/*  Section Pagination buttons */}
-        <section className="pagination flex mx-auto items-center justify-center  dark:bg-gray-800 bg-gray-200 font-light text-gray-500 sm:text-lg dark:text-gray-400">
+        {/* <section className="pagination flex mx-auto items-center justify-center  dark:bg-gray-800 bg-gray-200 font-light text-gray-500 sm:text-lg dark:text-gray-400">
           {pageNumbers.map((pageNumber) => (
             <button
               key={pageNumber}
@@ -165,8 +163,22 @@ const AllCountries = () => {
               {pageNumber}
             </button>
           ))}
-        </section>
+        </section> */}
 
+        <section className="pagination flex mx-auto items-center justify-center  dark:bg-gray-800 bg-gray-200 font-light text-gray-500 sm:text-lg dark:text-gray-400">
+          {currentPage === 1 ? (
+            <button onClick={() => setPage(currentPage + 1) } className={ currentPage ? "active" : ""} >
+              Next
+            </button>
+          ) : (
+            <button onClick={() => setPage(currentPage - 1)} className={ currentPage ? "active" : ""} >
+              Back
+            </button>
+          )}
+          {currentPage !== totalPages && (
+            <button onClick={() => setPage(currentPage + 1)} className={ currentPage ? "active" : ""}>Next</button>
+          )}
+        </section>
         {/* Footer Section */}
         <section id="Footer">
           <Footer />
