@@ -187,12 +187,12 @@ nav {
 @media (max-width: 709px)
 {
   .card {
-    width: 13rem;
+    width: 10rem;
     height: 10rem;
   }
   .img {
     width: auto;
-    height: 7.5rem;
+    height: 6rem;
   }
   .grids {
     display: grid;
