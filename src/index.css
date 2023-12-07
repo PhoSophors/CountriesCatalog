@@ -187,18 +187,18 @@ nav {
 @media (max-width: 709px)
 {
   .card {
-    width: 10rem;
+    width: 11rem;
     height: 10rem;
   }
   .img {
     width: auto;
-    height: 6rem;
+    height: 7rem;
   }
   .grids {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 0.5rem;
-    grid-row-gap: 6rem;;
+    grid-row-gap: 5rem;
   }
   .country-titel {
     display: -webkit-box;

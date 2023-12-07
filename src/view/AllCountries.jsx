@@ -10,7 +10,7 @@ import Loading from "../components/loading/Loading.jsx";
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(25); // 25 * 4 = 100
+  const [postsPerPage] = useState(24); // 25 * 4 = 100
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState("");
 
