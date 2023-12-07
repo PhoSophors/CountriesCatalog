@@ -10,7 +10,7 @@ import Loading from "../components/loading/Loading.jsx";
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(24); // 25 * 4 = 100
+  const [postsPerPage] = useState(25); // 25 * 4 = 100
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState("");
 
@@ -54,41 +54,6 @@ const AllCountries = () => {
       setIsLoading(false);
     }
   };
-
-  // const ascendingEvent = () => {
-  //   try {
-  //     let data = [...countries];
-  //     if (data.length > 0) {
-  //       let result = data.sort((a, b) => {
-  //         if (a.usename && b.usename) {
-  //           return a.usename.toString().localeCompare(b.usename.toString());
-  //         } else {
-  //           // Handle undefined or null usename properties
-  //           return 0; // Or sort based on other criteria if applicable
-  //         }
-  //       });
-  //       setCountries(result);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error sorting countries:", error);
-  //     alert(error.message);
-  //   }
-  // };
-
-  // const descendingEvent = () => {
-  //   try {
-  //     let data = [...countries];
-  //     if (data.length > 0) {
-  //       let result = data.sort((a, b) =>
-  //         b.usename.toString().localeCompare(a.usename.toString())
-  //       );
-  //       setCountries(result);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error sorting countries:", error);
-  //     alert(error.message);
-  //   }
-  // };
 
   // Memoize the countries variable.
   const memoizedCountries = useMemo(() => countries, [countries]);
@@ -138,7 +103,7 @@ const AllCountries = () => {
         </section>
 
         {/* Section countries */}
-        <section className="grids">
+        <section className="grids p-5">
           {countries.length === 0 ? (
             <Loading />
           ) : (
@@ -165,6 +130,8 @@ const AllCountries = () => {
           ))}
         </section> */}
 
+
+        {/*  Section Pagination buttons */}
         <section className="pagination flex mx-auto items-center justify-center  dark:bg-gray-800 bg-gray-200 font-light text-gray-500 sm:text-lg dark:text-gray-400">
           {currentPage === 1 ? (
             <button onClick={() => setPage(currentPage + 1) } className={ currentPage ? "active" : ""} >
@@ -179,6 +146,7 @@ const AllCountries = () => {
             <button onClick={() => setPage(currentPage + 1)} className={ currentPage ? "active" : ""}>Next</button>
           )}
         </section>
+
         {/* Footer Section */}
         <section id="Footer">
           <Footer />
