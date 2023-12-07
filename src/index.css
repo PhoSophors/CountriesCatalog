@@ -198,7 +198,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 0.5rem;
-    grid-row-gap: 5rem;
+    grid-row-gap: 4.3rem;
   }
   .country-titel {
     display: -webkit-box;
