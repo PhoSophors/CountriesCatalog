@@ -82,32 +82,7 @@ const Hero = ({ onSearch, onSelect, sortAscending, sortDescending }) => {
                 </button>
               </form>
             </div>
-            {/* end section search */}
-            {/* sorting  */}
-            {/* <div>
-              <p className="max-w-2xl items-start mt-5 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                Sort by name
-              </p>
-              <div className="inline-flex rounded-md shadow-sm" role="group">
-                <button
-                 value={submit}
-                 onChange={(e) => setInput(e.target.value)}
-                  type="button"
-                  className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
-                >
-                  Ascending
-                </button>
-                <button
-                 value={submit}
-                 onChange={(e) => setInput(e.target.value)}
-                  type="button"
-                  className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
-                >
-                  Descending
-                </button>
-              </div>
-            </div> */}
-            {/* end storting */}
+
           </div>
 
           {/* contries image */}

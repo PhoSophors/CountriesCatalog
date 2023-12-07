@@ -35,7 +35,7 @@ const CountriesInfo = () => {
 
       {country?.map((country, id) => (
         <div key={id} className=" dark:bg-gray-700">
-          <img className="modal-img  border-dashed border-2 border-sky-500" src={country.flags.png} alt="" />
+          <img className="modal-img rounded-3xl border-dashed border-2 border-sky-500" src={country.flags.png} alt="" />
           <h1 className="mt-5 text-gray-700 dark:text-gray-400">
             <span className="text-3xl text-bold text-gray-900 dark:text-gray-100">{country.name.official}</span>
           </h1>
